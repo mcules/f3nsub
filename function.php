@@ -38,5 +38,5 @@ function captcha()
 		$zeichen1="*"; 
                 $_SESSION["erg"]=$zahl1*$zahl2;
 	}
-	return ''.$zahl1.' '.$zeichen1.' '.$zahl2.' ergibt:';
+	return ''.zahlinwort($zahl1).' '.$zeichen1.' '.zahlinwort($zahl2).' ergibt:';
 }
