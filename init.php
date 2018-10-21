@@ -15,5 +15,3 @@ if ($initaktiv == 1) {
 } else {
     echo 'Bitte $initaktiv in config.php auf 1 setzen';
 }
-
-//2a0c:b642:1030::/44
