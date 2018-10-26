@@ -8,9 +8,9 @@ $mysql_pass = "password";
 $mysql_dbname = "database";
 
 try {
-    $dbh = new PDO("mysql:host=$mysql_host;dbname=$mysql_dbname", $mysql_user, $mysql_pass);
+	$dbh = new PDO("mysql:host=$mysql_host;dbname=$mysql_dbname", $mysql_user, $mysql_pass);
 } catch (PDOException $e) {
-    die("Error!: ". $e->getMessage()."<br/>");
+	die("Error!: ". $e->getMessage()."<br/>");
 }
 
 $initaktiv = 0;
