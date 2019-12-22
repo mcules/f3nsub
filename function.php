@@ -9,7 +9,7 @@ function getrout($ip) {
 }
 
 function getAnnouncements() {
-	$shellResult = shell_exec("echo dump | nc ::1 33123 -q 0 | grep xroute | grep -v '0.0.0.0' | grep -v '/32' | grep -v '/128' | grep -v 'fd43:' | cut -d' '  -f5");
+	$shellResult = shell_exec("echo dump | nc ::1 33123 -q 0 | grep -v '0.0.0.0' | grep -v '/32' | grep -v '/128' | grep -v 'fd43:' | cut -d' '  -f5 | grep '^2a'");
         return explode("\n", $shellResult, -1);
 }
 
