@@ -1,6 +1,5 @@
 <?php
-function getrout($ip)
-{
+function getrout($ip) {
 	$file = "/tmp/babeldump";
 	if (shell_exec('echo "dump" | nc ::1 33123 -q 0 | grep ' . $ip . '')) {
 		return true;
@@ -9,15 +8,18 @@ function getrout($ip)
 	}
 }
 
-function zahlinwort($zahl)
-{
-	$Return = array('Null', 'Eins', 'Zwei', 'Drei', 'Vier', 'F&uuml;nf', 'Sechs', 'Sieben', 'Acht', 'Neun', 'Zehn');
+function getAnnouncements() {
+	$shellResult = shell_exec("echo dump | nc ::1 33123 -q 0 | grep xroute | grep -v '0.0.0.0' | grep -v '/32' | grep -v '/128' | grep -v 'fd43:' | cut -d' '  -f5");
+        return explode("\n", $shellResult, -1);
+}
+
+function zahlinwort($zahl) {
+	$Return = array('Null', 'Eins', 'Zwei', 'Drei', 'Vier', 'F&uuml;nf', 'Sechs', 'Sieben', 'Acht', 'Neun');
 
 	return $Return[$zahl];
 }
 
-function captcha()
-{
+function captcha() {
 	$zahl1 = rand(0, 9);
 	$zahl2 = rand(0, 9);
 	$zeichen = rand(1, 2);
